@@ -1,7 +1,15 @@
 # Lexus-Fermelia
 Personal Repo showcasing various projects and systems I have worked on, as well as an informal portfolio of notable works I did in school.
 
-# TODO - Reference UWIT Bronson
+##### TODO - Reference UWIT Bronson (censor!!!)
+##### TODO - Showcase TeamDynamix data science (censor!!!)
+
+##### TODO - Cyber Securiy USB Injections (censor!!!)
+##### TODO - Linux Programming Sub projects (might need to get from linux server)
+##### TODO - Compiler Systems Project (might need to get from linux server)
+##### TODO - Mobile programming apps
+##### TODO - VR/AR Projects
+##### TODO- Reference Primetime Paradox
 
 # Algorithms Repos
 1.	https://github.com/COSC3020/binary-search-DJReflexive
