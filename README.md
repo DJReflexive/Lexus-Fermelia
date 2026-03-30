@@ -1,6 +1,10 @@
 # Lexus Fermelia
 
-A Wyoming-born Software Developer and music enthusiast, graduate of the University of Wyoming with a B.S. in Computer Science (Expected May 2026). With a passion for problem solving and creating efficient solutions, I have experience in both high-level and low-level programming languages and frameworks - having worked on multiple projects ranging from web applications to system software. In my spare time I teach drum lessons, instruct drumlines, compose electronic music, and continuously learn new technologies to enhance my skill set. I am always looking for new challenges and opportunities to grow as a developer and a person. I always seek to contribute to innovative projects, and am actively working on a web development project for the University of Wyoming's Classroom Technology Services (CTS) department.
+A Wyoming-born Software Developer and music enthusiast, graduate of the University of Wyoming with a B.S. in Computer Science (Expected May 2026). 
+With a passion for problem solving and creating efficient solutions, I have experience in both high-level and low-level programming languages and frameworks - having worked on multiple projects ranging from web applications to system software. 
+
+I am always looking for new challenges and opportunities to grow as a developer and a person. 
+I always seek to contribute to innovative projects, and am actively working on a web development project for the University of Wyoming's Classroom Technology Services (CTS) department.
 
 
 What you are viewing now is a personal repository showcasing various projects and systems I have worked on. Ranging from School Work, Personal Work, and Professional Work, you can find specific projects and code that I have worked on. 
