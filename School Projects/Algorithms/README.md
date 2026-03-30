@@ -87,6 +87,6 @@ Lexus-Fermelia
 
 # Links & Contact Info
 
-### [Personal Website](https://www.lexusfermelia.com) | [LinkedIn](https://www.linkedin.com/in/lexus-fermelia/) | [Handshake](https://wyoming.joinhandshake.com/profiles/lexus-fermelia) 
+### [Personal Website](https://lexusfermelia.com) | [LinkedIn](https://www.linkedin.com/in/lexus-fermelia/) | [Handshake](https://wyoming.joinhandshake.com/profiles/lexus-fermelia) 
 
 ### Get in Touch: lexusfermelia@gmail.com
