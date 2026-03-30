@@ -76,5 +76,5 @@ encouraged us to use AI as a tool for learning, not so much as a method to
 1.	[*Asynchronous Functions](https://github.com/COSC3020/asynchronous-functions-DJReflexive)
 1.	[*Parallel Mergsort](https://github.com/COSC3020/parallel-mergesort-DJReflexive)
 
-\*repositories 11-24 were opportunities where I created my own tests 
-to validate my code works
+\*these assignments were opportunities where I created my own unit/property 
+testing to validate that my code works
