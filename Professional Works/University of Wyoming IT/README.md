@@ -4,9 +4,9 @@
 
 ## Table of Contents
 
-<!--> Two Directories Deep <-->
+<!-- Two directories deep -->
 <pre>
-<a href="../../">Lexus-Fermelia</a>
+<a href="../../.">Lexus-Fermelia</a>
 ├── <a href="../.././Personal%20Works">Personal Works</a>
 │   └── <a href="../.././Personal%20Works/README.md">README.md</a>
 │

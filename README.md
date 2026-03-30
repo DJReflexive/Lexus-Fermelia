@@ -8,7 +8,7 @@ What you are viewing now is a personal repository showcasing various projects an
 ## Table of Contents
 
 <pre>
-<a href="./">Lexus-Fermelia (You are Here!)</a>
+<a href="https://github.com/DJReflexive/Lexus-Fermelia/tree/HEAD/">Lexus-Fermelia (You are Here!)</a>
 ├── <a href="./Personal%20Works">Personal Works</a>
 │   └── <a href="./Personal%20Works/README.md">README.md</a>
 │
