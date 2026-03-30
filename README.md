@@ -7,43 +7,23 @@ What you are viewing now is a personal repository showcasing various projects an
 
 ## Table of Contents
 
-{content: }
-
-````
-.
-├── Personal Works ```[Test](lexusfermelia.com)```
-│ └──── README.md
+<pre>
+<a href="#personal-works">Lexus Fermelia</a>
+├── <a href="#personal-works">Personal Works</a>
+│   └── <a href="Personal%20Works/README.md">README.md</a>
 │
-├── Professional Works 
-│ └──── University of Wyoming IT
+├── <a href="#professional-works">Professional Works</a>
+│   └── <a href="Professional%20Works/University%20of%20Wyoming%20IT">University of Wyoming IT</a>
 │
-└── School Works 
-  ├──── Algorithms
-  ├──── Android Mobile Apps
-  ├──── Compiler Project
-  ├──── Cyber Security Malware Project
-  ├──── Linux Systems Tools
-  ├──── Primetime Paradox Senior Project (Video Game)
-  └──── VR & AR Unity Projects
-````
-
-## 📁 Project Structure
-
-```
-.
-├── [Personal Works](#personal-works)
-│   └── [README.md](Personal%20Works/README.md)
-├── [Professional Works](#professional-works)
-│   └── [University of Wyoming IT](Professional%20Works/University%20of%20Wyoming%20IT)
-└── [School Works](#school-works)
-    ├── [Algorithms](School%20Works/Algorithms)
-    ├── [Android Mobile Apps](School%20Works/Android%20Mobile%20Apps)
-    ├── [Compiler Project](School%20Works/Compiler%20Project)
-    ├── [Cyber Security Malware Project](School%20Works/Cyber%20Security%20Malware%20Project)
-    ├── [Linux Systems Tools](School%20Works/Linux%20Systems%20Tools)
-    ├── [Primetime Paradox Senior Project](School%20Works/Primetime%20Paradox%20Senior%20Project)
-    └── [VR & AR Unity Projects](School%20Works/VR%20&%20AR%20Unity%20Projects)
-```
+└── <a href="#school-works">School Works</a>
+    ├── <a href="School%20Works/Algorithms">Algorithms</a>
+    ├── <a href="School%20Works/Android%20Mobile%20Apps">Android Mobile Apps</a>
+    ├── <a href="School%20Works/Compiler%20Project">Compiler Project</a>
+    ├── <a href="School%20Works/Cyber%20Security%20Malware%20Project">Cyber Security Malware Project</a>
+    ├── <a href="School%20Works/Linux%20Systems%20Tools">Linux Systems Tools</a>
+    ├── <a href="School%20Works/Primetime%20Paradox%20Senior%20Project%20(Video%20Game)">Primetime Paradox Senior Project (Video Game)</a>
+    └── <a href="School%20Works/VR%20&%20AR%20Unity%20Projects">VR & AR Unity Projects</a>
+</pre>
 
 <br>
 
