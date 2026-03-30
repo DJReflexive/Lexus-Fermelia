@@ -44,5 +44,3 @@ Lexus-Fermelia (You are Here!)
 ### [Personal Website](https://www.lexusfermelia.com) | [LinkedIn](https://www.linkedin.com/in/lexus-fermelia/) | [Handshake](https://wyoming.joinhandshake.com/profiles/lexus-fermelia) 
 
 ### Get in Touch: lexusfermelia@gmail.com
-
-### This repo is empty right now, but check back later when I get things updated!
