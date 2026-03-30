@@ -1,3 +1,14 @@
+# This is the School Projects Directory
+
+
+
+# Sorry! 
+
+### This repo is empty right now, but check back later when I get things updated! 
+<br>
+
+
+
 ## Table of Contents
 
 <!-- One directory deep -->
@@ -23,4 +34,8 @@ Lexus-Fermelia
 
 
 
-# This is the School Projects Directory
+# Links & Contact Info
+
+### [Personal Website](https://www.lexusfermelia.com) | [LinkedIn](https://www.linkedin.com/in/lexus-fermelia/) | [Handshake](https://wyoming.joinhandshake.com/profiles/lexus-fermelia) 
+
+### Get in Touch: lexusfermelia@gmail.com

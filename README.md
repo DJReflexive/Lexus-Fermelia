@@ -27,9 +27,17 @@ Lexus-Fermelia (You are Here!)
 
 <br>
 
-# Links & Contact
+# Sorry! 
 
-### [Personal Website](lexusfermelia.com) | [LinkedIn](https://www.linkedin.com/in/lexus-fermelia/) | [Handshake](https://wyoming.joinhandshake.com/profiles/lexus-fermelia) 
+### This repo is mostly empty right now, with the exception of my <a href="./School%20Projects/Algorithms">Algorithms</a> page, but check back later when I get things updated! 
+
+### In the mean time, feel free to check out my [Personal Website](https://www.lexusfermelia.com) as well as my [LinkedIn](https://www.linkedin.com/in/lexus-fermelia/) and [Handshake](https://wyoming.joinhandshake.com/profiles/lexus-fermelia) profiles. If you're trying to get in contact with me, you can find me at my email: lexusfermelia@gmail.com.
+
+<br>
+
+# Links & Contact Info
+
+### [Personal Website](https://www.lexusfermelia.com) | [LinkedIn](https://www.linkedin.com/in/lexus-fermelia/) | [Handshake](https://wyoming.joinhandshake.com/profiles/lexus-fermelia) 
 
 ### Get in Touch: lexusfermelia@gmail.com
 

@@ -1,3 +1,14 @@
+# This is the Professional Works Directory
+
+
+
+# Sorry! 
+
+### This repo is empty right now, but check back later when I get things updated! 
+<br>
+
+
+
 ## Table of Contents
 
 <!-- One directory deep -->
@@ -22,5 +33,8 @@ Lexus-Fermelia
 <br>
 
 
+# Links & Contact Info
 
-# This is the Professional Works Directory
+### [Personal Website](https://www.lexusfermelia.com) | [LinkedIn](https://www.linkedin.com/in/lexus-fermelia/) | [Handshake](https://wyoming.joinhandshake.com/profiles/lexus-fermelia) 
+
+### Get in Touch: lexusfermelia@gmail.com

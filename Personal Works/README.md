@@ -1,3 +1,20 @@
+
+# This is the Personal Works Directory
+
+
+#### Script that added file extensions to image files that had missing extensions (Snapchat)
+
+#### Custom QR Code png generator
+
+<br>
+
+
+# Sorry! 
+
+### This repo is empty right now, but check back later when I get things updated! 
+<br>
+
+
 ## Table of Contents
 
 <!-- One directory deep -->
@@ -22,11 +39,8 @@ Lexus-Fermelia
 <br>
 
 
+# Links & Contact Info
 
+### [Personal Website](https://www.lexusfermelia.com) | [LinkedIn](https://www.linkedin.com/in/lexus-fermelia/) | [Handshake](https://wyoming.joinhandshake.com/profiles/lexus-fermelia) 
 
-# This is the Personal Works Directory
-
-
-#### TODO - Script that added file extensions to image files that had missing extensions (Snapchat)
-
-#### TODO - Custom QR Code png generator
+### Get in Touch: lexusfermelia@gmail.com

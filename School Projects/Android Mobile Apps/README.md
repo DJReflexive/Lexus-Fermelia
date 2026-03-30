@@ -1,3 +1,13 @@
+# Mobile Programming Apps
+
+# Sorry! 
+
+### This repo is empty right now, but check back later when I get things updated! 
+<br>
+
+
+
+
 ## Table of Contents
 
 <!-- Two directories deep -->
@@ -22,5 +32,8 @@ Lexus-Fermelia
 <br>
 
 
+# Links & Contact Info
 
-# TODO - Mobile Programming Apps
+### [Personal Website](https://www.lexusfermelia.com) | [LinkedIn](https://www.linkedin.com/in/lexus-fermelia/) | [Handshake](https://wyoming.joinhandshake.com/profiles/lexus-fermelia) 
+
+### Get in Touch: lexusfermelia@gmail.com
