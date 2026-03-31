@@ -1,18 +1,20 @@
 
 # This is the Personal Works Directory
 
+Right now, this directory is for small works I've made to help with daily life. 
+As I develop more personal projects, you will see them here! 
 
-#### Script that added file extensions to image files that had missing extensions (Snapchat)
+Check out my <a href=".././Professional%20Works">Professional Works</a> and <a href=".././School%20Projects/">School Works</a> for my most involved projects!
 
-#### Custom QR Code png generator
+
+## Simple Scripts
+
+- <a href="./no_file_extension_to_png.py">no_file_extension_to_png.py</a>: Script that added file extensions to image files that had missing extensions
+
+- <a href="./QR_Spare_PC.cs">QR_Spare_PC.cs</a>: A script that generates custom .png files formatted with QR Code, identification codes, and an instruction set. Developed for UWIT to  quickly track where spare PCs are going around campus. Can be easily rewritten for other QR Code generation needs...
 
 <br>
 
-
-# Sorry! 
-
-### This repo is empty right now, but check back later when I get things updated! 
-<br>
 
 
 ## Table of Contents
