@@ -7,7 +7,7 @@ I am always looking for new challenges and opportunities to grow as a developer 
 I always seek to contribute to innovative projects, and am actively working on a web development project for the University of Wyoming's Classroom Technology Services (CTS) department.
 
 
-What you are viewing now is a personal repository showcasing various projects and systems I have worked on. Ranging from School Work, Personal Work, and Professional Work, you can find specific projects and code that I have worked on. If you don't know where to start, my suggestion would be to check out my <a href="./School%20Projects/Primetime%20Paradox%20Senior%20Project%20%28Video%20Game%29">Primetime Paradox</a> video game project and my <a href="./Professional%20Works/University%20of%20Wyoming%20IT">University of Wyoming IT</a> web development project called Bronson! 
+What you are viewing now is a personal repository showcasing various projects and systems I have worked on. Ranging from School Work, Personal Work, and Professional Work, you can find specific projects and code that I have worked on. If you don't know where to start, my suggestion would be to check out my <a href="./School%20Projects/Primetime%20Paradox">Primetime Paradox</a> video game project and my <a href="./Professional%20Works/University%20of%20Wyoming%20IT">University of Wyoming IT</a> web development project called Bronson! 
 
 ## Table of Contents
 
@@ -25,7 +25,7 @@ Lexus-Fermelia (You are Here!)
     ├── <a href="./School%20Projects/Compiler%20Project">Compiler Project</a>
     ├── <a href="./School%20Projects/Cyber%20Security%20Malware%20Project">Cyber Security Malware Project</a>
     ├── <a href="./School%20Projects/Linux%20Systems%20Tools">Linux Systems Tools</a>
-    ├── <a href="./School%20Projects/Primetime%20Paradox%20Senior%20Project%20%28Video%20Game%29">Primetime Paradox</a>
+    ├── <a href="./School%20Projects/Primetime%20Paradox">Primetime Paradox</a>
     └── <a href="./School%20Projects/VR%20%26%20AR%20Unity%20Projects">VR & AR Unity Projects</a>
 </pre>
 
