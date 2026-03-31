@@ -5,7 +5,7 @@ graduate at UW. It was where every student was taught the fundamentals
 of thinking as a developer by re-creating and developing common algorithms 
 and theory fundamentals.
 
-Of course, concepts like searching, sorting, and graphing algorhithms were
+Of course, concepts like searching, sorting, and graphing algorithms were
 covered, but I decided to omit the very basic repositories from this so that I 
 can show you the more interesting projects I worked on. Some are basic, some 
 are more complex, but every repo shows a unique window into my developer mind.
@@ -30,29 +30,31 @@ encouraged us to use AI as a tool for learning, not so much as a method to
 
 ## Algorithms Repos (Click on One!)
 
-1.	[Reverse Insertion Sort](https://github.com/COSC3020/reverse-insertion-sort-DJReflexive)
-1.	[Fibonacci Invariants](https://github.com/COSC3020/fibonacci-invariants-DJReflexive)
-1.	[Recurrence Analysis](https://github.com/COSC3020/recurrence-analysis-DJReflexive)
-1.	[Recurrent Recurrences](https://github.com/COSC3020/recurrent-recurrences-DJReflexive)
-1.	[Quicksort](https://github.com/COSC3020/quicksort-DJReflexive)
-1.	[Quicksort Pivot](https://github.com/COSC3020/quicksort-pivot-DJReflexive)
-1.	[Brute Force Sorting](https://github.com/COSC3020/brute-force-sorting-DJReflexive)
-1.	[Pancake Sort](https://github.com/COSC3020/pancake-sort-DJReflexive)
-1.	[Theoretical Sorting](https://github.com/COSC3020/theoretical-sorting-DJReflexive)
-1.	[*Graph Search](https://github.com/COSC3020/graph-search-DJReflexive)
-1.	[*Dijkstra's Algorithm](https://github.com/COSC3020/dijkstra-s-algorithm-DJReflexive)
-1.	[*Isomorphism Connectivity](https://github.com/COSC3020/isomorphism-connectivity-DJReflexive)
-1.	[*Isomorphism Nodes](https://github.com/COSC3020/isomorphism-nodes-DJReflexive)
-1.	[*Isomorphism Nodes/Connectivity](https://github.com/COSC3020/isomorphism-nodes-connectivity-DJReflexive)
-1.	[*Augmenting Path](https://github.com/COSC3020/augmenting-path-DJReflexive)
-1.	[*Detecting Cycles](https://github.com/COSC3020/detecting-cycles-DJReflexive)
-1.	[*Tail Recursion](https://github.com/COSC3020/tail-recursion-DJReflexive)
-1.	[*Dynamic Euler](https://github.com/COSC3020/dynamic-euler-DJReflexive)
-1.	[*All Pairs Shortest Paths](https://github.com/COSC3020/all-pairs-shortest-paths-DJReflexive)
-1.	[*Travelling Salesman Problem - Held-Karp Algorithm](https://github.com/COSC3020/tsp-held-karp-DJReflexive)
-1.	[*Travelling Salesman Problem - Local Search](https://github.com/COSC3020/tsp-local-search-DJReflexive)
-1.	[*Asynchronous Functions](https://github.com/COSC3020/asynchronous-functions-DJReflexive)
-1.	[*Parallel Mergsort](https://github.com/COSC3020/parallel-mergesort-DJReflexive)
+
+| Repository Name | Brief Description |
+|---|---|
+| [Reverse Insertion Sort](https://github.com/COSC3020/reverse-insertion-sort-DJReflexive) | Basic Insert Sort, but going backwards through the algorithm |
+| [Fibonacci Invariants](https://github.com/COSC3020/fibonacci-invariants-DJReflexive) | Iterative Fibonacci Implementation & Invariant Statement  |
+| [Recurrence Analysis](https://github.com/COSC3020/recurrence-analysis-DJReflexive) | An Asymptotic Analysis of a mystery function |
+| [Recurrent Recurrences](https://github.com/COSC3020/recurrent-recurrences-DJReflexive) | An Asymptotic Analysis of three recurrence relations |
+| [Quicksort](https://github.com/COSC3020/quicksort-DJReflexive) | Iterative implementation of Quick Sort |
+| [Quicksort Pivot](https://github.com/COSC3020/quicksort-pivot-DJReflexive) | A mathematical proof of determining a good pivot for quicksort |
+| [Brute Force Sorting](https://github.com/COSC3020/brute-force-sorting-DJReflexive) | A brute force sorting implementation & runtime analysis |
+| [Pancake Sort](https://github.com/COSC3020/pancake-sort-DJReflexive) | A fun sorting algorithm implementation |
+| [Theoretical Sorting](https://github.com/COSC3020/theoretical-sorting-DJReflexive) | Theoretical discussion of whether a linear sorting algorithm could exist |
+| [*Graph Search](https://github.com/COSC3020/graph-search-DJReflexive) | Depth First Search (DFS) Graph Implementation |
+| [*Dijkstra's Algorithm](https://github.com/COSC3020/dijkstra-s-algorithm-DJReflexive) | Dijkstra's Algorithm Implementation |
+| [*Isomorphism Connectivity](https://github.com/COSC3020/isomorphism-connectivity-DJReflexive) | A mathematical proof of connectivity and isomorphic graphs |
+| [*Isomorphism Nodes](https://github.com/COSC3020/isomorphism-nodes-DJReflexive) | A mathematical proof of mismatched number of nodes and isomorphic graphs |
+| [*Isomorphism Nodes/Connectivity](https://github.com/COSC3020/isomorphism-nodes-connectivity-DJReflexive) | Combination of the two above ^^^ |
+| [*Augmenting Path](https://github.com/COSC3020/augmenting-path-DJReflexive) | Shortest path building algorithm in a graph |
+| [*Detecting Cycles](https://github.com/COSC3020/detecting-cycles-DJReflexive) | An implementation for detecting cycles within a path |
+| [*Tail Recursion](https://github.com/COSC3020/tail-recursion-DJReflexive) | Tail recursive fibonacci implementation |
+| [*Dynamic Euler](https://github.com/COSC3020/dynamic-euler-DJReflexive) | Dynamic programming algorithm for calculating Euler's constant to $n$ degrees of accuracy |
+| [*All Pairs Shortest Paths](https://github.com/COSC3020/all-pairs-shortest-paths-DJReflexive) | Implementation for detecting the shortest path between pairs |
+| [*Traveling Salesman Problem - Held-Karp Algorithm](https://github.com/COSC3020/tsp-held-karp-DJReflexive) | Implementation of the Held-Karp TSP Algorithm |
+| [*Traveling Salesman Problem - Local Search](https://github.com/COSC3020/tsp-local-search-DJReflexive) | Local Search / Simulated Annealing - Finding shortest tour |
+| [*Parallel Mergesort](https://github.com/COSC3020/parallel-mergesort-DJReflexive) | Mergesort with parallel threading |
 
 \*these assignments were opportunities where I created my own unit/property 
 testing to validate that my code works

@@ -3,12 +3,14 @@
 At the University of Wyoming, I had the opportunity to work 
 with the IT department's Classroom Technology Services (CTS) department. At CTS, much of the primary responsibilities for a student technician is to do room checks, respond to support tickets, and implement/replace equipment in classrooms all across the campus. 
 
-Over time, I got used to the AV role pretty quickly, having had much experience with systems in my Computer Science degree - I wanted to do more. Luckily, a couple year before I was hired, a small team of other student techs had sought out to create an all-encompassing CTS department tool that handles all of the common tasks a CTS technician would need to do, all in one place. The project was "Bronson," and it was something I wanted to contribute to.
+Within a couple of months, I got used to the AV role pretty quickly due to my experience with systems in my Computer Science degree. However, I wanted to do more. Luckily, a couple years before I was hired, a small team of other student techs had sought out to create an all-encompassing CTS department tool that handles all common tasks a CTS technician would need to do, all in one place. The project was called "Bronson," and it was something I wanted to contribute to.
 
 ### ![Bronson - Dashboard](./Images/Bronson%20Dashboard.png "Bronson - Dashboard")
 
 
-Bronson has a public GitHub repository that you can find [here](https://github.com/UWIT-CTS-Software/bronson_online). Much of the code I contributed touches most systems (which you can find more details below), but my biggest contribution was "Tickex" - an application that syncs our departments ticket data with the University's TeamDynamix subscription. Using an API that interacts with TeamDynamix's servers, Bronson will sync concurrent ticket data related to the CTS department and forward it to web clients that are connected to backend servers hosted by the University. Tickex is a tool that uses both front end and back end systems for the application to work.
+Bronson has a public GitHub repository that you can find [here](https://github.com/UWIT-CTS-Software/bronson_online), and is where you can find my open source code. Much of my contributions touch most systems (which you can find more details below), but my biggest contribution was "Tickex" - an application that synchronizes Bronson's ticket data with the University's TeamDynamix subscription. Using an API that interacts directly with TeamDynamix's servers, Bronson will sync concurrent ticket data related to the CTS department and forward it to web clients that are connected to backend servers hosted by the University. Tickex is a tool that uses both front end and back end systems for the application to work.
+
+Something to note about the University's TeamDynamix subscription is that every department, not just within IT, uses it. This means that there is substantial data to sort through, and ensuring all data is accurate, all-encompassing to our department, and presented in an organized fashion is no small feat. That is the power of Tickex - its ability to automatically sort through and notify relevant tickets to technicians within minutes of being submitted. This is a major enhancement to our department, since one of our core responsibilities is to respond to support requests quickly.
 
 ### Other Bronson Features I Have Worked On:
 
@@ -25,7 +27,9 @@ Bronson has a public GitHub repository that you can find [here](https://github.c
 
 ### ![Bronson - Tickex Main Popup](./Images/Bronson%20Tickex%20Popup.png "Bronson - Tickex Main Popup")
 
-Due to the nature of this ticketing API, I became very familiar with TeamDynamix. Not only was I doing ticket synchronization with Bronson, I was also doing some data analysis with our department's tickets. Analyzing statistics with real ticket data and reporting those numbers to my department.
+<br>
+
+Due to the nature of this ticketing API, I became very familiar with TeamDynamix. Not only was I doing ticket synchronization with Bronson, I was also doing some data analysis with our department's tickets. Analyzing statistics with real ticket data and reporting those numbers to my department. Some ticket insights included: room pre-/post-upgrade ticket rates
 
 ### ![TeamDynamix - Example Ticket Reports](./Images/TeamDynamix.png "TeamDynamix - Example Ticket Reports")
 
