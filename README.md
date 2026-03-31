@@ -38,3 +38,7 @@ Lexus-Fermelia (You are Here!)
 ### [Personal Website](https://lexusfermelia.com) | [LinkedIn](https://www.linkedin.com/in/lexus-fermelia/) | [Handshake](https://wyoming.joinhandshake.com/profiles/lexus-fermelia) 
 
 ### Get in Touch: lexusfermelia@gmail.com
+
+<br>
+
+###### Last Updated:  March 30th, 2026
