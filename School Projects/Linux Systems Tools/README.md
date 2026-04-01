@@ -1,14 +1,36 @@
 # Linux Systems Tools
 
 
+In this repo, I have a collection of common linux tools that we recreated 
+using our own C scripts.
 
-# Sorry! 
+This class was focused on teaching the basics of linux systems, and what better 
+way to do that than to script using Makefiles in linux environment, attempting
+to copy common linux tools? 
 
-### This repo is empty right now, but check back later when I get things updated! 
+The naming convention of our tools (with one exception) is to prefix the tool we were working on 
+with "wy-" and then the name of the command. So for example, "wycat" would be
+my implementation of the "cat" command. See below for a list of commands that
+I recreated using my own C scripts!
+
+- <b>[wycat](./wycat/)</b>
+- <b>[wyls](./wyls/)</b>
+- <b>[wytar](./wytar/)</b>
+- <b>[wytalk](./wytalk/)</b> - a server/client system for basic text chatting between two people
+- <b>[wyshell](./wyshell/)</b> - a very basic shell
+- <b>[mmult](./mmult/)</b> - a matrix multiplier tool
+
 <br>
 
+To run each project, on a Linux device, have "make" installed and type "make" to compile the project.
+Then type "./xyz" where xyz is the name of the executable (which is also the names you see in the list above).
+Each tool has a unique usage, so check the README for how to use the tool and for demo images.
+
+###### Note: These projects were developed solely for Linux OS. They will probably not work on Windows/Mac (as far as I am aware).
 
 
+
+<br>
 
 ## Table of Contents
 
