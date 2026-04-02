@@ -33,7 +33,7 @@ void setDimensionSize(char *buff, int buffSize, FILE *matrix, int *size) {
 
 
 // void allocate(Matrix *m)
-// Paramaters: m - the matrix to be allocated
+// Parameters: m - the matrix to be allocated
 // Return Value: void
 //
 // Allocated memory to the given matrix
@@ -64,7 +64,7 @@ void allocate(Matrix *m) {
 
 
 // void setTableInfo(Matrix *m, FILE *fmatrix)
-// Paramaters: m - The internal reference matrix
+// Parameters: m - The internal reference matrix
 //             fmatrix - The file containing the matrix info
 // Return Value: void
 //
@@ -86,7 +86,7 @@ void setTableInfo(Matrix *m, FILE *fmatrix) {
 
 
 // *worker(void *arg)
-// Paramaters: arg - passed arguments
+// Parameters: arg - passed arguments
 // Return Value: void
 //
 // Invidual worker thread that locks
@@ -136,7 +136,7 @@ void *worker(void *arg) {
 
 
 // void freeMatrix(Matrix *m)
-// Paramaters: m - Matrix to be freed
+// Parameters: m - Matrix to be freed
 // Return Value: void
 //
 // Deallocates matrix memory
