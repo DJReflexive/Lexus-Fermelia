@@ -26,7 +26,10 @@ Here are the versions and their corresponding milestones:
     - Error handling will try to be helpful in describing what the problem is to the user, but is often wrong at this stage of development.
     - It's a step in the right direction, but at this point the compiler is too strict, so the next version aims to fix some of that.
 - [Program 4](./program4/)
-    - Lorem ipsum
+    - Huge improvements to the grammar, and now C commenting is supported.
+    - At this stage, the grammar is close to being in its final stage, and can now support more complex function and class structures. 
+    - When you **Ctrl+D**, the program will output a tree structure of the decaf file you had input.
+    - Error handling is better, but not entirely comprehensive yet. An improvement that final two version aim to fix.
 - [Program 5](./program5/)
     - Lorem ipsum
 - [Program 6](./program6/) 
