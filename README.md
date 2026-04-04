@@ -28,8 +28,8 @@ What you are viewing now is a personal repository showcasing various projects an
 
 |  |  |  |
 |---|---|---|
-| C / C#        | JavaScript    | Software Engineering  |
-| C++           | CSS           | Database Systems      |
+| C / C++       | JavaScript    | Software Engineering  |
+| C#            | CSS           | Database Systems      |
 | Python        | HTML          | Systems Development   |
 | Rust          | Windows OS    | Web Development       |
 | Java          | Linux OS      | Mobile Development    |
