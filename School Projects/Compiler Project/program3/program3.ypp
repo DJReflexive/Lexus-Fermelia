@@ -1,0 +1,436 @@
+%{
+// program3.ypp
+// Lexus Fermelia
+// COSC 4785 Fall 2025
+// Program 03
+// October 10, 2025
+//
+// The syntactical definitions and rules for Program 3.
+
+#include <iostream>
+#include <FlexLexer.h>
+#include <string>
+#include "nodes.hpp"
+
+using namespace std;
+
+extern yyFlexLexer myScanner;
+extern int lineCount;
+
+#define yylex() myScanner.yylex();
+
+void yyerror(Node* tree, const char* s);
+%}
+
+%code requires { #include "nodes.hpp" }
+%parse-param { Node*& tree }
+%union {
+  Node* ttype;
+  char* text;
+}
+
+
+// Declaring types for symbols
+%type <ttype> program elements vardec exp newexp type
+%type <ttype> simpletype multibrackets name bracketexps bracketexp
+%type <ttype> basename namesuffixlist namesuffix
+
+// Tokens from .lpp
+%token CLASS VOID INT NEW PRINT READ RETURN WHILE IF ELSE THIS NULLT
+%token PLUS MINUS TIMES DIV MOD OR AND EQ NEQ GEQ LEQ GT LT NOT ASSIGN
+%token LPAREN RPAREN LBRACK RBRACK LBRACE RBRACE SEMI COMMA DOT
+%token <text> IDENT NUMBER
+%token ER_CH ER_WD EOFT
+%token UMINUS UPLUS
+
+// Prescedence/Associativity
+%left OR
+%left AND
+%left EQ NEQ
+%left GEQ LEQ GT LT
+%left PLUS MINUS
+%left TIMES DIV MOD
+%right ASSIGN
+%right NOT UMINUS UPLUS
+
+// Start Symbol
+%start program
+
+%%
+
+
+// Grammar
+program
+  : program elements { 
+      $1->setnext($2); 
+      $$ = $1; 
+      tree = $$;
+    }
+  | elements { 
+      $$ = new Node($1); 
+      $$->setval("program"); 
+      tree = $$;
+    }
+;
+
+elements
+  : vardec {
+      $$ = new Node($1);
+      $$->setval("vardec");
+    }
+  | exp SEMI {
+      $$ = new Node($1);
+      $$->setval("exp");
+    }
+  | SEMI {
+      $$ = new Node();
+    }
+  | error SEMI {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Perhaps a premature or missing ';'?" << endl;
+      $$ = new Node();
+      $$->setval("ERROR_SEMI");
+  }
+;
+
+vardec
+  : type IDENT SEMI { 
+      $$ = new Node(); 
+      $$->addChild($1); 
+      Node* idNode = new Node();
+      idNode->setval($2, "ID");
+      $$->addChild(idNode);
+      $$->setval("vardec"); 
+    }
+  | type multibrackets IDENT SEMI { 
+      $$ = new Node(); 
+      $$->addChild($1); 
+      $$->addChild($2); 
+      Node* idNode = new Node();
+      idNode->setval($3, "ID");
+      $$->addChild(idNode);
+      $$->setval("vardec"); 
+    }
+  | type error SEMI {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Unexpected token in variable declaration..." << endl;
+      $$ = new Node();
+      $$->setval("ERROR_UNEXPECTED_TOKEN");
+    }
+  | type IDENT error {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Perhaps a premature or missing ';'?" << endl;
+      $$ = new Node();
+      $$->setval("ERROR_SEMI");
+    }
+  | type multibrackets IDENT error {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Perhaps a premature or missing ';'?" << endl;
+      $$ = new Node();
+      $$->setval("ERROR_SEMI");
+    }
+;
+
+exp
+  : NUMBER {
+      $$ = new Node();
+      $$->setval($1, "NUMBER");
+    }
+  | name {
+      $$ = $1;
+    }
+  | NULLT  { 
+      $$ = new Node();
+      $$->setval("NULL"); 
+    }
+  | READ LPAREN RPAREN {
+      $$ = new Node();
+      $$->setval("READ");
+    }
+  | newexp {
+      $$ = $1;
+    }
+  | LPAREN exp RPAREN {
+      $$ = new nodeParExp($2);
+      $$->setval("(exp)");
+    }
+  | name LPAREN RPAREN {
+      $$ = new Node($1);
+      $$->setval("call"); 
+    }
+  | exp PLUS exp { 
+      $$ = new nodeExpExp($1,$3);
+      $$->setval("exp + exp");
+    }
+  | exp MINUS exp { 
+      $$ = new nodeExpExp($1,$3);
+      $$->setval("exp - exp");
+    }
+  | exp TIMES exp { 
+      $$ = new nodeExpExp($1,$3);
+      $$->setval("exp * exp");
+    }
+  | exp DIV exp { 
+      $$ = new nodeExpExp($1,$3);
+      $$->setval("exp / exp");
+    }
+  | exp MOD exp { 
+      $$ = new nodeExpExp($1,$3);
+      $$->setval("exp % exp");
+    }
+  | exp OR exp { 
+      $$ = new nodeExpExp($1,$3);
+      $$->setval("exp || exp");
+    }
+  | exp AND exp { 
+      $$ = new nodeExpExp($1,$3);
+      $$->setval("exp && exp");
+    }
+  | exp EQ exp { 
+      $$ = new nodeExpExp($1,$3);
+      $$->setval("exp == exp");
+    }
+  | exp NEQ exp { 
+      $$ = new nodeExpExp($1,$3);
+      $$->setval("exp != exp");
+    }
+  | exp GEQ exp { 
+      $$ = new nodeExpExp($1,$3);
+      $$->setval("exp >= exp");
+    }
+  | exp LEQ exp { 
+      $$ = new nodeExpExp($1,$3);
+      $$->setval("exp <= exp");
+    }
+  | exp GT exp { 
+      $$ = new nodeExpExp($1,$3);
+      $$->setval("exp > exp");
+    }
+  | exp LT exp { 
+      $$ = new nodeExpExp($1,$3);
+      $$->setval("exp < exp");
+    }
+  | MINUS exp %prec UMINUS {
+      $$ = new nodeMinus($2);
+      $$->setval("UMINUS"); 
+    }
+  | PLUS exp %prec UPLUS  {
+      $$ = new Node($2);
+      $$->setval("UPLUS"); 
+    }
+  | NOT exp {
+      $$ = new Node($2);
+      $$->setval("NOT"); 
+    }
+  | READ LPAREN error {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Missing ')'" << endl;
+      $$ = new Node();
+      $$->setval("ERROR_CLOSING_PAREN");
+    }
+  | name LPAREN error {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Missing ')'" << endl;
+      $$ = new Node();
+      $$->setval("ERROR_CLOSING_PAREN");
+    }
+  | LPAREN exp error {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Missing ')'" << endl;
+      $$ = new Node();
+      $$->setval("ERROR_CLOSING_PAREN");
+    }
+  | MINUS error %prec UMINUS {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Missing or invalid expression after unary '-'" << endl;
+      $$ = new Node();
+      $$->setval("ERROR_MISSING_EXP");
+    }
+  | PLUS error %prec UPLUS {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Missing or invalid expression after unary '+'" << endl;
+      $$ = new Node();
+      $$->setval("ERROR_MISSING_EXP");
+    }
+  | NOT error {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Missing or invalid expression after '!'" << endl;
+      $$ = new Node();
+      $$->setval("ERROR_MISSING_EXP");
+    }
+;
+
+newexp
+  : NEW IDENT LPAREN RPAREN {
+      $$ = new Node();
+      $$->setval("NEW");
+    }
+  | NEW simpletype {
+      $$ = new Node($2);
+      $$->setval("NEW");
+    }
+  | NEW simpletype bracketexps {
+      $$ = new Node($2);
+      $$->setval("NEW");
+    }
+  | NEW IDENT bracketexps {
+      $$ = new Node();
+      $$->setval("NEW");
+    }
+  | NEW error SEMI {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Unexpected token in type field..." << endl;
+      $$ = new Node();
+      $$->setval("ERROR_UNEXPECTED_TOKEN");
+    }
+  | NEW error LPAREN RPAREN SEMI {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Unexpected token in type field..." << endl;
+      $$ = new Node();
+      $$->setval("ERROR_UNEXPECTED_TOKEN");
+    }
+  | NEW error bracketexps SEMI {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Unexpected token in type field..." << endl;
+      $$ = new Node();
+      $$->setval("ERROR_UNEXPECTED_TOKEN");
+    }
+  | NEW IDENT LPAREN error {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Missing ')'" << endl;
+      $$ = new Node();
+      $$->setval("ERROR_CLOSING_PAREN");
+    }
+;
+
+type
+  : simpletype {
+      $$ = $1;
+    }
+;
+
+simpletype
+  : INT {
+      $$ = new Node();
+      $$->setval("INT");
+    }
+;
+
+bracketexp
+  : LBRACK exp RBRACK { 
+      $$ = new Node($2); 
+      $$->setval("brackexp"); 
+    }
+  | LBRACK RBRACK {
+      cerr << "\nSyntax Error:" << endl;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Missing expression in within '[]'\n" << endl;
+      $$ = new Node();
+      $$->setval("ERROR_MISSING_EXP");
+    }
+  | LBRACK error RBRACK {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  Unexpected token within '[]'..." << endl;
+      $$ = new Node();
+      $$->setval("ERROR_UNEXPECTED_TOKEN");
+    }
+  | LBRACK exp error {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  No closing ']'" << endl;
+      $$ = new Node();
+      $$->setval("ERROR_CLOSING_BRACK");
+    }
+;
+
+bracketexps
+  : bracketexp { $$ = $1; }
+  | bracketexps bracketexp { 
+      $1->setnext($2); 
+      $$ = $1; 
+    }
+;
+
+multibrackets
+  : LBRACK RBRACK { 
+      $$ = new Node(); 
+      $$->setval("multibrackets"); 
+    }
+  | multibrackets LBRACK RBRACK { 
+      $$ = $1; 
+      Node* extra = new Node(); 
+      extra->setval("multibrackets"); 
+      $1->setnext(extra); 
+    }
+  | LBRACK error {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  No closing ']'" << endl;
+      $$ = new Node();
+      $$->setval("ERROR_CLOSING_BRACK");
+    }
+  | multibrackets LBRACK error {
+      yyerrok;
+      cerr << "Error in statement at line " << lineCount << endl;
+      cerr << "  No closing ']'" << endl;
+      $$ = new Node();
+      $$->setval("ERROR_CLOSING_BRACK");
+    }
+;
+
+name
+  : basename namesuffixlist { 
+      $$ = new Node($1);
+      $$->addChild($2); 
+      $$->setval("name"); 
+    }
+;
+
+basename
+  : IDENT {
+      $$ = new Node();
+      $$->setval($1, "ID");
+    }
+  | THIS  {
+      $$ = new Node();
+      $$->setval("THIS");
+    }
+;
+
+namesuffixlist
+  : /* empty */ {
+      $$ = new Node();
+    }
+  | namesuffixlist namesuffix {
+      $$ = new Node($1);
+      $$->addChild($2);
+      $$->setval("suffixlist");
+    }
+;
+
+namesuffix
+  : DOT IDENT   {
+      $$ = new Node();
+      $$->setval($2, "ID");
+    }
+  | bracketexp  {
+      $$ = $1;
+    }
+;
+
+%%

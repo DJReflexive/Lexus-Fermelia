@@ -13,12 +13,14 @@ with "wy-" and then the name of the command we are replicating. So for example, 
 my implementation of the "cat" command. See below for a list of commands that
 I recreated using my own C scripts!
 
-- <b>[wycat](./wycat/)</b>
-- <b>[wyls](./wyls/)</b>
-- <b>[wytar](./wytar/)</b>
-- <b>[wytalk](./wytalk/)</b> - a server/client system for basic text chatting between two people
-- <b>[wyshell](./wyshell/)</b> - a very basic shell
-- <b>[mmult](./mmult/)</b> - a matrix multiplier tool
+| Tool | Goal |
+|---|---|
+| [wycat](./wycat/) | Recreation of the Linux command "cat" |
+| [wyls](./wyls/) | Recreation of the Linux command "ls" |
+| [wytar](./wytar/) | Recreation of the Linux command "tar" |
+| [wytalk](./wytalk/) | a server/client system for basic text chatting between two people |
+| [wyshell](./wyshell/) | a basic shell terminal |
+| [mmult](./mmult/) | a matrix multiplier tool |
 
 <br>
 

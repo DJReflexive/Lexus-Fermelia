@@ -1,11 +1,25 @@
 # Compiler Project
 
 
+This class was an interesting one. The whole premise of the class was to build
+a real working compiler for the Decaf programming language (a subset language 
+of Java) over the span of the semester. 
+You'll see six different versions of the compiler as it develops over time. 
+Each iteration was to achieve a specific goal, the next step in the process 
+to get to a working compiler.
 
-# Sorry! 
+Each program version use "make" to compile and run the compiler.
 
-### This repo is empty right now, but check back later when I get things updated! 
-<br>
+Here are the versions and their corresponding goals:
+
+| Version | Goal |
+|---|---|
+| [Program 1](./program1/) |  |
+| [Program 2](./program2/) |  |
+| [Program 3](./program3/) |  |
+| [Program 4](./program4/) |  |
+| [Program 5](./program5/) |  |
+| [Program 6](./program6/) | The final working compiler for the Decaf Programming Language... |
 
 
 ## Table of Contents

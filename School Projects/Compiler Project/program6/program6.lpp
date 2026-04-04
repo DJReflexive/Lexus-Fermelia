@@ -1,0 +1,174 @@
+%{
+// program6.lpp
+// Lexus Fermelia
+// COSC 4785 Fall 2025
+// Program 06
+// December 2, 2025
+//
+// The lexical definitions and rules for Program 6.
+
+#include "program6.tab.hpp"
+#include <cstring>
+#include <string>
+#include <iostream>
+
+using namespace std;
+
+extern yyFlexLexer myScanner;
+int lineCount = 1;
+int colCount = 1;
+int tokenStart = 1;
+string currLineText = "";
+
+#define UPDATE(tok) \
+  tokenStart = colCount; \
+  yylval.text = strdup(yytext); \
+  currLineText += yytext; \
+  colCount += yyleng; \
+  return tok;
+
+
+void yyerror(Node* tree, const char* s) {
+  string lineCountPrefix = std::to_string(lineCount) + ": ";
+
+  cerr << "\n" << lineCountPrefix << currLineText << endl;
+  cerr << string(lineCountPrefix.length() + tokenStart - 1, ' ') << "^" << endl;
+  cerr << "Syntax Error:" << endl;
+}
+%}
+
+%option outfile="program6_lex.cpp"
+%option noyywrap
+
+
+
+COMMENT                   "//".*
+BLOCK_COMMENT             "/*"([^*]|\*+[^*/])*\*+"/"
+BLOCK_COMMENT_NOCLOSING   "/*"([^*]|\*+[^*/])*$ 
+
+IDENT                     [_a-zA-Z][_a-zA-Z0-9]*
+
+SINGLE_ERROR              [^ \t\n{}()[\].,;+\-*/&|<>=!a-zA-Z0-9]
+WORD_ERROR                {SINGLE_ERROR}(([a-zA-Z0-9_]|{SINGLE_ERROR})+)?
+
+
+%%
+
+
+<<EOF>> { return 0; }
+
+
+{COMMENT} {
+  for (int i = 0; i < yyleng; i++) {
+    if (yytext[i] == '\n') {
+      lineCount++;
+      colCount = 1;
+      currLineText.clear();
+    }
+    else {
+      colCount++;
+    }
+  }
+}
+{BLOCK_COMMENT} {
+  for (int i = 0; i < yyleng; i++) {
+    if (yytext[i] == '\n') {
+      lineCount++;
+      colCount = 1;
+      currLineText.clear();
+    }
+    else {
+      colCount++;
+    }
+  }
+}
+{BLOCK_COMMENT_NOCLOSING} {
+  cerr << "Warning: Unterminated block comment at line " << lineCount << endl;
+  int c;
+
+  while ((c = yyinput()) != EOF) {
+    if (c == '\n') {
+      lineCount++;
+      colCount = 1;
+      currLineText.clear();
+    }
+    else {
+      colCount++;
+      currLineText += (char)c;
+    }
+  }
+}
+
+
+"\["      { UPDATE(LBRACK) }
+"\]"      { UPDATE(RBRACK) }
+"\{"      { UPDATE(LBRACE) }
+"\}"      { UPDATE(RBRACE) }
+"!="      { UPDATE(NEQ) }
+"=="      { UPDATE(EQ) }
+"<"       { UPDATE(LT) }
+">"       { UPDATE(GT) }
+"<="      { UPDATE(LEQ) }
+">="      { UPDATE(GEQ) }
+"&&"      { UPDATE(AND) }
+"||"      { UPDATE(OR) }
+"!"       { UPDATE(NOT) }
+"+"       { UPDATE(PLUS) }
+"-"       { UPDATE(MINUS) }
+"*"       { UPDATE(TIMES) }
+"/"       { UPDATE(DIV) }
+"%"       { UPDATE(MOD) }
+";"       { UPDATE(SEMI) }
+","       { UPDATE(COMMA) }
+"\("      { UPDATE(LPAREN) }
+"\)"      { UPDATE(RPAREN) }
+"="       { UPDATE(ASSIGN) }
+"."       { UPDATE(DOT) }
+
+
+"int"     { UPDATE(INT) }
+"void"    { UPDATE(VOID) }
+"class"   { UPDATE(CLASS) }
+"new"     { UPDATE(NEW) }
+"print"   { UPDATE(PRINT) }
+"read"    { UPDATE(READ) }
+"return"  { UPDATE(RETURN) }
+"while"   { UPDATE(WHILE) }
+"if"      { UPDATE(IF) }
+"else"    { UPDATE(ELSE) }
+"this"    { UPDATE(THIS) }
+"null"    { UPDATE(NULLT) }
+
+
+{SINGLE_ERROR} { 
+  cerr << lineCount << ": " << currLineText << endl; 
+  cerr << "Invalid character: '" << yytext << "'" << endl; 
+  colCount += yyleng;
+  currLineText += yytext;
+}
+{WORD_ERROR} { 
+  cerr << lineCount << ": " << currLineText << endl; 
+  cerr << "Invalid word: '" << yytext << "'" << endl; 
+  colCount += yyleng;
+  currLineText += yytext;
+}
+
+
+{IDENT} { UPDATE(IDENT) }
+[0-9]+ { UPDATE(NUMBER) }
+
+
+[ \t]+ {
+  colCount += yyleng;
+  currLineText += yytext;
+}
+[\n] { 
+  lineCount++;
+  colCount = 1;
+  currLineText.clear();
+}
+. {
+  currLineText += yytext;
+  colCount++;
+  return yytext[0];
+}
