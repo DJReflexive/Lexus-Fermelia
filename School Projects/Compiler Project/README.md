@@ -8,8 +8,6 @@ You'll see six different versions of the compiler as it develops over time.
 Each iteration was to achieve a specific goal, the next step in the process 
 to get to a working compiler.
 
-Each program version use "make" to compile and run the compiler.
-
 Here are the versions and their corresponding milestones:
 
 
