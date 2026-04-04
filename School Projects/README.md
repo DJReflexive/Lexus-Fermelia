@@ -1,13 +1,11 @@
 # This is the School Projects Directory
 
+A collection of all my notable works that I worked on while I was at the 
+University of Wyoming. Here you will find previous projects 
+that I developed. 
 
-
-# Sorry! 
-
-### This repo is empty right now, but check back later when I get things updated! 
-<br>
-
-
+I have a wide variety of skills that are showcased within this directory, from
+algorithm assignments, to Unity game development projects.
 
 ## Table of Contents
 

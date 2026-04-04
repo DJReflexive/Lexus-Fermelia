@@ -2,14 +2,14 @@
 
 
 In this repo, I have a collection of common linux tools that we recreated 
-using our own C scripts.
+using our own C scripts in linux.
 
 This class was focused on teaching the basics of linux systems, and what better 
-way to do that than to script using Makefiles in linux environment, attempting
-to copy common linux tools? 
+way to do that than scripting in a linux environment, attempting
+to recreate common linux tools? 
 
 The naming convention of our tools (with one exception) is to prefix the tool we were working on 
-with "wy-" and then the name of the command. So for example, "wycat" would be
+with "wy-" and then the name of the command we are replicating. So for example, "wycat" would be
 my implementation of the "cat" command. See below for a list of commands that
 I recreated using my own C scripts!
 
