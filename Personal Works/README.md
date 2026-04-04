@@ -1,7 +1,7 @@
 
 # This is the Personal Works Directory
 
-Right now, this directory is for small works I've made to help with daily life. 
+This directory is for small works I've made to help with daily life. 
 As I develop more personal projects, you will see them here! 
 
 Check out my <a href=".././Professional%20Works">Professional Works</a> and <a href=".././School%20Projects/">School Works</a> for my most involved projects!

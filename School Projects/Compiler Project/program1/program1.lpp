@@ -1,0 +1,40 @@
+
+%option outfile="program1_lex.cpp"
+%option noyywrap
+
+%{
+#include "tokens.hpp"
+%}
+
+
+COMPARE_OP    "=="|"!="|">="|"<="|"<"|">"
+LOGICAL_OP    "||"|"&&"
+MATH_OP       "+"|"-"|"*"|"/"
+ENCLOSING_OP  "{"|"}"|"("|")"|"["|"]"
+PUNCTUATION   "."|","|";"
+KEYWORD       "this"|"if"|"else"|"while"
+IDENTIFIER    [_a-zA-Z][_a-zA-Z0-9]*
+FLOAT         [0-9]+\.[0-9]+([eE][+-]?[0-9]+)?|[0-9]+[eE][+-]?[0-9]+
+
+
+%%
+
+"/*"            { return TOK_OPENCOMMENT; }
+"*/"            { return TOK_CLOSECOMMENT; }
+
+[ ]             { return TOK_SPACE; }
+[\t]            { return TOK_TAB; }
+
+<<EOF>>         { return TOK_EOF; }
+{COMPARE_OP}    { return TOK_COMPARE_OP; }
+{LOGICAL_OP}    { return TOK_LOGICAL_OP; }
+{MATH_OP}       { return TOK_MATH_OP; }
+{ENCLOSING_OP}  { return TOK_ENCLOSING_OP; }
+{PUNCTUATION}   { return TOK_PUNCTUATION; }
+{KEYWORD}       { return TOK_KEYWORD; }
+{IDENTIFIER}    { return TOK_IDENTIFIER; }
+[0-9]+          { return TOK_NUMBER; }
+{FLOAT}         { return TOK_FLOAT; }
+[\n]            { return TOK_NEWLINE; }
+.               { return TOK_UNRECOGNIZED; }
+

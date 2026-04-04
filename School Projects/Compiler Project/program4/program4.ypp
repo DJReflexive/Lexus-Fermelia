@@ -1,0 +1,728 @@
+%{
+// program4.ypp
+// Lexus Fermelia
+// COSC 4785 Fall 2025
+// Program 04
+// October 28, 2025
+//
+// The syntactical definitions and rules for Program 4.
+
+#include <iostream>
+#include <FlexLexer.h>
+#include <string>
+#include "nodes.hpp"
+
+using namespace std;
+
+extern yyFlexLexer myScanner;
+extern int lineCount;
+
+#define yylex() myScanner.yylex();
+
+#define ERR(description) \
+    yyerrok; \
+    cerr << "Error in statement at line " << lineCount << endl; \
+    cerr << description << endl;
+
+void yyerror(Node* tree, const char* s);
+%}
+
+%code requires {
+  #include "nodes.hpp"
+}
+%parse-param {
+  Node*& tree
+}
+%expect 2
+%union {
+  Node* ttype;
+  char* text;
+}
+
+
+// Declaring types for symbols
+%type <ttype> program classdec classbody exp newexp type arglistnonempty
+%type <ttype> paramlist param arglist name typearrays member statement
+%type <ttype> namesuffixlist namesuffix block statements paramlistnonempty
+%type <ttype> conditionalstatement optionalexp memberlist  
+
+// Tokens from .lpp
+%token CLASS VOID INT NEW PRINT READ RETURN WHILE IF ELSE THIS NULLT
+%token PLUS MINUS TIMES DIV MOD OR AND EQ NEQ GEQ LEQ GT LT NOT ASSIGN
+%token LPAREN RPAREN LBRACK RBRACK LBRACE RBRACE SEMI COMMA DOT
+%token <text> IDENT NUMBER
+%token UMINUS UPLUS
+
+// Prescedence/Associativity
+%left OR
+%left AND
+%left PLUS MINUS
+%left TIMES DIV MOD
+%nonassoc EQ NEQ GEQ LEQ GT LT
+%right ASSIGN
+%right NOT UMINUS UPLUS
+%nonassoc LOWER_THAN_ELSE
+%nonassoc ELSE
+
+
+// Start Symbol
+%start program
+
+%%
+
+
+// Grammar
+
+program
+  : classdec { 
+    $$ = new Node($1);
+    $$->setval("program");
+    tree = $$;
+  }
+  | program classdec {
+    $$ = new Node($1);
+    $$->addChild($2);
+    $$->setval("program");
+    tree = $$;
+  }
+;
+
+classdec
+  : CLASS IDENT classbody {
+    $$ = new Node();
+    $$->setval("classdec");
+    
+    Node* classNode = new Node();
+    classNode->setval("CLASS", "CLASS");
+    
+    Node* idNode = new Node();
+    idNode->setval($2, "ID");
+
+    $$->addChild(classNode);
+    $$->addChild(idNode);
+    $$->addChild($3);
+  }
+  | CLASS error classbody {
+      ERR("Missing/Invalid class name identifier");
+      $$ = new Node();
+      $$->setval("ERROR_INVALID_CLASS_NAME");
+      $$->addChild($3);
+  }
+  | CLASS IDENT error {
+      ERR("Missing/Invalid class body");
+      yyclearin;
+      $$ = new Node();
+      $$->setval("ERROR_INVALID_CLASS_BODY");
+  }
+;
+
+classbody
+  : LBRACE memberlist RBRACE {
+    $$ = new Node();
+    $$->setval("classbody");
+    $$->addChild($2);
+  }
+  | LBRACE memberlist error {
+    ERR("Missing '}'");
+    yyclearin;
+    $$ = new Node();
+    $$->setval("ERROR_MISSING_RBRACE");
+  }
+;
+
+memberlist
+  : /* empty */ {
+    $$ = new Node();
+    $$->setval("members");
+  }
+  | memberlist member {
+    $$ = new Node($1);
+    $$->addChild($2);
+    $$->setval("members");
+  }
+;
+
+member
+  : type IDENT SEMI {
+    $$ = new Node();
+    $$->addChild($1);
+    Node* idNode = new Node();
+    idNode->setval($2, "ID");
+    $$->addChild(idNode);
+    $$->setval("vardec");
+  }
+  | VOID IDENT LPAREN paramlist RPAREN block {
+    $$ = new Node();
+    $$->setval("method");
+
+    Node* voidNode = new Node();
+    voidNode->setval("VOID");
+    $$->addChild(voidNode);
+
+    Node* idNode = new Node();
+    idNode->setval($2, "ID");
+    $$->addChild(idNode);
+
+    $$->addChild($4);
+    $$->addChild($6);
+  }
+  | type IDENT LPAREN paramlist RPAREN block {
+    $$ = new Node();
+    $$->setval("method");
+    $$->addChild($1);
+
+    Node* idNode = new Node();
+    idNode->setval($2, "ID");
+    $$->addChild(idNode);
+
+    $$->addChild($4);
+    $$->addChild($6);
+  }
+  | IDENT LPAREN paramlist RPAREN block {
+    Node* idNode = new Node();
+    idNode->setval($1, "ID");
+
+    $$ = new Node();
+    $$->setval("constdec");
+    $$->addChild(idNode);
+
+    $$->addChild($3);
+    $$->addChild($5);
+  }
+  | IDENT LPAREN paramlist error block {
+    ERR("Missing ')'");
+    $$ = new Node();
+    $$->setval("ERROR_MISSING_RPAREN");
+  }
+  | type IDENT LPAREN paramlist error block {
+    ERR("Missing ')'");
+    $$ = new Node();
+    $$->setval("ERROR_MISSING_RPAREN");
+  }
+  | type IDENT error {
+    ERR("Missing ';'");
+    $$ = new Node();
+    $$->setval("ERROR_MISSING_SEMI");
+  }
+  | type IDENT LPAREN paramlist RPAREN error {
+    ERR("Missing method body block");
+    yyclearin;
+    $$ = new Node();
+    $$->setval("ERROR_MISSING_METHOD_BLOCK");
+  }
+;
+
+type
+  : INT typearrays {
+    $$ = new Node();
+    $$->setval("INT");
+
+    if ($2) {
+      $2->addChild($$);
+      $$ = $2;
+    }
+  }
+  | IDENT typearrays {
+    $$ = new Node();
+    
+    Node* idNode = new Node();
+    idNode->setval($1, "ID");
+
+    if ($2) {
+      $2->addChild(idNode);
+      $$ = $2;
+    }
+    else {
+      $$ = idNode;
+    }
+  }
+;
+
+typearrays
+  : /* empty */ {
+    $$ = nullptr;
+  }
+  | LBRACK RBRACK typearrays {
+    Node* arr = new Node();
+    arr->setval("arraytype");
+
+    if ($3) {
+      arr->addChild($3);
+    }
+
+    $$ = arr;
+  }
+    | LBRACK NUMBER RBRACK typearrays {
+    Node* arr = new Node();
+    arr->setval("arraytype");
+
+    if ($4) {
+      arr->addChild($4);
+    }
+
+    $$ = arr;
+  }
+  | LBRACK error RBRACK {
+    ERR("Missing ']'");
+    if (yychar != RBRACK) {
+      yyclearin;
+    }
+
+    $$ = new Node();
+    $$->setval("ERROR_MISSING_RBRACK");
+  }
+;
+
+paramlist
+  : /* empty */ {
+    $$ = nullptr;
+  }
+  | paramlistnonempty {
+    $$ = $1;
+  }
+;
+
+paramlistnonempty
+  : param { 
+    $$ = $1;
+  }
+  | paramlistnonempty COMMA param { 
+    Node* commaNode = new Node();
+    commaNode->setval("COMMA");
+
+    $$ = $1;
+    $$->addChild(commaNode);
+    $$->addChild($3);
+  }
+;
+
+param
+  : type IDENT { 
+    $$ = new Node(); 
+    $$->addChild($1); 
+
+    Node* idNode = new Node(); 
+    idNode->setval($2, "ID"); 
+    $$->addChild(idNode); 
+    $$->setval("param"); 
+  }
+;
+
+block
+  : LBRACE statements RBRACE {
+    $$ = new Node();
+    $$->setval("block");
+    $$->addChild($2);
+  }
+  | LBRACE statements error {
+    ERR("Missing '}'");
+    yyclearin;
+    $$ = new Node();
+    $$->setval("ERROR_MISSING_RBRACE");
+  }
+;
+
+statements
+  : /* empty */ {
+    $$ = nullptr;
+  }
+  | statements statement {
+    $$ = new Node($1);
+    $$->addChild($2);
+    $$->setval("statements");
+  }
+;
+
+statement
+  : type IDENT SEMI { 
+    $$ = new Node();
+    $$->setval("localvardec");
+    $$->addChild($1);
+    Node* idNode = new Node();
+    idNode->setval($2, "ID");
+    $$->addChild(idNode);
+  }
+  | SEMI {
+    $$ = nullptr;
+  }
+  | name ASSIGN exp SEMI {
+    $$ = new Node();
+    $$->setval("assign");
+    $$->addChild($1);
+
+    Node* assignNode = new Node();
+    assignNode->setval("ASSIGN");
+    $$->addChild(assignNode);
+
+    $$->addChild($3);
+  }
+  | name LPAREN arglist RPAREN SEMI {
+    $$ = new Node();
+    $$->setval("call");
+    $$->addChild($1);
+
+    Node* lparen = new Node();
+    lparen->setval("LPAREN");
+    Node* rparen = new Node();
+    rparen->setval("RPAREN");
+    $$->addChild(lparen);
+    $$->addChild($3);
+    $$->addChild(rparen);
+
+    Node* semi = new Node(); semi->setval("SEMI");
+    $$->addChild(semi);
+  }
+  | PRINT LPAREN arglist RPAREN SEMI {
+    $$ = new Node();
+    $$->setval("print");
+
+    Node* printNode = new Node();
+    printNode->setval("PRINT");
+    Node* lparen = new Node();
+    lparen->setval("LPAREN");
+    Node* rparen = new Node();
+    rparen->setval("RPAREN");
+    Node* semi = new Node();
+    semi->setval("SEMI");
+
+    $$->addChild(printNode);
+    $$->addChild(lparen);
+    $$->addChild($3);
+    $$->addChild(rparen);
+    $$->addChild(semi);
+  }
+  | conditionalstatement {
+    $$ = $1; 
+  }
+  | WHILE LPAREN exp RPAREN statement {
+    $$ = new Node();
+    $$->setval("while");
+
+    Node* whileNode = new Node();
+    whileNode->setval("WHILE");
+    Node* lparen = new Node();
+    lparen->setval("LPAREN");
+    Node* rparen = new Node();
+    rparen->setval("RPAREN");
+
+    $$->addChild(whileNode);
+    $$->addChild(lparen);
+    $$->addChild($3);
+    $$->addChild(rparen);
+    $$->addChild($5);
+  }
+  | RETURN optionalexp SEMI {
+    $$ = new Node();
+    $$->setval("return");
+
+    Node* returnNode = new Node();
+    returnNode->setval("RETURN");
+    Node* semi = new Node();
+    semi->setval("SEMI");
+
+    $$->addChild(returnNode);
+    $$->addChild($2);
+    $$->addChild(semi);
+  }
+  | block { 
+    $$ = $1;
+  }
+  | RETURN optionalexp error {
+    ERR("Missing ';'");
+    $$ = new Node();
+    $$->setval("ERROR_MISSING_SEMI");
+  }
+  | PRINT LPAREN arglist RPAREN error {
+    ERR("Missing ';' after PRINT");
+    yyerrok;
+    $$ = new Node();
+    $$->setval("ERROR_MISSING_SEMI_PRINT");
+  }
+  | name LPAREN arglist RPAREN error {
+    ERR("Missing ';' after function call");
+    yyerrok;
+    $$ = new Node();
+    $$->setval("ERROR_MISSING_SEMI_CALL");
+  }
+  | WHILE LPAREN error RPAREN statement {
+    ERR("Missing condition in WHILE");
+    yyclearin;
+    $$ = new Node();
+    $$->setval("ERROR_WHILE_CONDITION");
+  }
+;
+
+name
+  : IDENT namesuffixlist {
+    $$ = new Node();
+
+    Node* idNode = new Node();
+    idNode->setval($1, "ID");
+    $$->addChild(idNode);
+
+    if ($2) {
+      $$->addChild($2);
+    }
+
+    $$->setval("name");
+  }
+  | THIS namesuffixlist {
+    $$ = new Node();
+
+    Node* thisNode = new Node();
+    thisNode->setval("THIS");
+    $$->addChild(thisNode);
+
+    if ($2) {
+      $$->addChild($2);
+    }
+
+    $$->setval("name");
+  }
+;
+
+namesuffixlist
+  : /* empty */ {
+    $$ = nullptr;
+  }
+  | namesuffixlist namesuffix {
+    Node* listNode = new Node();
+    listNode->setval("suffixlist");
+    if ($1) {
+      listNode->addChild($1);
+    }
+    listNode->addChild($2);
+    $$ = listNode;
+  }
+;
+
+namesuffix
+  : DOT IDENT {
+    $$ = new Node();
+    $$->setval($2, "ID");
+  }
+  | LBRACK exp RBRACK {
+    $$ = new Node();
+    $$->addChild($2);
+  }
+;
+
+arglist
+  : /* empty */ {
+    $$ = nullptr;
+  }
+  | arglistnonempty {
+    $$ = $1;
+  }
+;
+
+arglistnonempty
+  : exp {
+    $$ = $1;
+  }
+  | arglistnonempty COMMA exp {
+    Node* commaNode = new Node();
+    commaNode->setval("COMMA");
+    $$ = $1;
+    $$->addChild(commaNode);
+    $$->addChild($3);
+  }
+;
+
+conditionalstatement
+  : IF LPAREN exp RPAREN statement %prec LOWER_THAN_ELSE {
+    $$ = new Node();
+    $$->setval("if");
+    $$->addChild($3);
+    $$->addChild($5);
+  }
+  | IF LPAREN exp RPAREN statement ELSE statement {
+    $$ = new Node();
+    $$->setval("if_else");
+    $$->addChild($3);
+    $$->addChild($5);
+    $$->addChild($7);
+  }
+  | IF LPAREN exp error statement {
+    ERR("Missing ')'");
+    $$ = new Node();
+    $$->setval("ERROR_MISSING_RPAREN");
+  }
+;
+
+optionalexp
+  : /* empty */ {
+    $$ = nullptr;
+  }
+  | exp {
+    $$ = $1;
+  }
+;
+
+exp
+  : name {
+    $$ = $1;
+  }
+  | NUMBER {
+    $$ = new Node();
+    $$->setval($1, "NUMBER");
+  }
+  | NULLT  { 
+    $$ = new Node();
+    $$->setval("NULL"); 
+  }
+  | name LPAREN arglist RPAREN {
+    $$ = new Node();
+    $$->setval("call");
+    $$->addChild($1);
+    $$->addChild($3);
+  }
+  | READ LPAREN RPAREN {
+    $$ = new Node();
+    $$->setval("READ");
+  }
+  | newexp {
+    $$ = $1;
+  }
+  | NOT exp {
+    $$ = new Node();
+    $$->setval("NOT");
+    $$->addChild($2);
+  }
+  | UMINUS exp {
+    $$ = new Node();
+    $$->setval("UMINUS");
+    $$->addChild($2);
+  }
+  | UPLUS exp {
+    $$ = new Node();
+    $$->setval("UPLUS");
+    $$->addChild($2);
+  }
+  | exp PLUS exp {
+    $$ = new Node();
+    $$->setval("PLUS");
+    $$->addChild($1);
+    $$->addChild($3);
+  }
+  | exp MINUS exp {
+    $$ = new Node();
+    $$->setval("MINUS");
+    $$->addChild($1);
+    $$->addChild($3);
+  }
+  | exp TIMES exp {
+    $$ = new Node();
+    $$->setval("TIMES");
+    $$->addChild($1);
+    $$->addChild($3);
+  }
+  | exp DIV exp {
+    $$ = new Node();
+    $$->setval("DIV");
+    $$->addChild($1);
+    $$->addChild($3);
+  }
+  | exp MOD exp {
+    $$ = new Node();
+    $$->setval("MOD");
+    $$->addChild($1);
+    $$->addChild($3);
+  }
+  | exp AND exp {
+    $$ = new Node();
+    $$->setval("AND");
+    $$->addChild($1);
+    $$->addChild($3);
+  }
+  | exp OR exp {
+    $$ = new Node();
+    $$->setval("OR");
+    $$->addChild($1);
+    $$->addChild($3);
+  }
+  | exp EQ exp {
+    $$ = new Node();
+    $$->setval("EQ");
+    $$->addChild($1);
+    $$->addChild($3);
+  }
+  | exp NEQ exp {
+    $$ = new Node();
+    $$->setval("NEQ");
+    $$->addChild($1);
+    $$->addChild($3);
+  }
+  | exp LT exp {
+    $$ = new Node();
+    $$->setval("LT");
+    $$->addChild($1);
+    $$->addChild($3);
+  }
+  | exp GT exp {
+    $$ = new Node();
+    $$->setval("GT");
+    $$->addChild($1);
+    $$->addChild($3);
+  }
+  | exp LEQ exp {
+    $$ = new Node();
+    $$->setval("LEQ");
+    $$->addChild($1);
+    $$->addChild($3);
+  }
+  | exp GEQ exp {
+    $$ = new Node();
+    $$->setval("GEQ");
+    $$->addChild($1);
+    $$->addChild($3);
+  }
+  | LPAREN exp RPAREN {
+    $$ = new nodeParExp($2);
+    $$->setval("(exp)");
+  }
+  | LPAREN exp error {
+    ERR("Missing ')'");
+    $$ = new Node();
+    $$->setval("ERROR_MISSING_RPAREN");
+  }
+;
+
+newexp
+  : NEW IDENT LPAREN arglist RPAREN {
+    $$ = new Node();
+    $$->setval("new");
+
+    Node* idNode = new Node();
+    idNode->setval($2, "ID");
+    $$->addChild(idNode);
+    $$->addChild($4);
+  }
+  | NEW IDENT LBRACK exp RBRACK {
+    $$ = new Node();
+    $$->setval("new");
+
+    Node* idNode = new Node();
+    idNode->setval($2, "ID");
+    $$->addChild(idNode);
+    $$->addChild($4);
+  }
+  | NEW type {
+    $$ = new Node($2);
+    $$->setval("NEW");
+  }
+  | NEW IDENT LPAREN arglist error {
+    ERR("Missing ')'");
+    yyclearin;
+    $$ = new Node();
+    $$->setval("ERROR_MISSING_RPAREN");
+  }
+  | NEW IDENT LBRACK exp error {
+    ERR("Missing ']'");
+    yyclearin;
+    $$ = new Node();
+    $$->setval("ERROR_MISSING_RBRACK");
+  }
+;
+
+%%

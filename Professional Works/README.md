@@ -1,12 +1,8 @@
 # This is the Professional Works Directory
 
-
-
-# Sorry! 
-
-### This repo is empty right now, but check back later when I get things updated! 
-<br>
-
+Here you can view all of my professional projects, all real software 
+I have worked on that has gone to be deployed for people to use 
+in real world applications.
 
 
 ## Table of Contents

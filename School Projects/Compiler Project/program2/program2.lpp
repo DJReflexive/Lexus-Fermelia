@@ -1,0 +1,80 @@
+%{
+// program2.cpp
+// Lexus Fermelia
+// COSC 4785 Fall 2025
+// Program 02
+// September 13, 2025
+//
+// The lexical definitions and rules for Program 2.
+
+#include "tokens.hpp"
+%}
+
+
+%option outfile="program2_lex.cpp"
+%option noyywrap
+
+
+IDENT         [_a-zA-Z][_a-zA-Z0-9]*
+
+SINGLE_ERROR  [^ \t\n{}()[\].,;+\-*/&|<>=!a-zA-Z0-9]
+WORD_ERROR    {SINGLE_ERROR}(([a-zA-Z0-9_]|{SINGLE_ERROR})+)?
+
+
+%%
+
+
+<<EOF>>         { return EOFT; }
+
+"//".*"\n"      { return COMMENT; }
+"/*"            { return OPENCOMMENT; }
+"*/"            { return CLOSECOMMENT; }
+
+
+[ ]             { return SPACE; }
+[\t]            { return TAB; }
+[\n]            { return NEWLINE; }
+
+"\["            { return LBRACK; }
+"\]"            { return RBRACK; }
+"\{"            { return LBRACE; }
+"\}"            { return RBRACE; }
+"!="            { return NEQ; }
+"=="            { return EQ; }
+"<"             { return LT; }
+">"             { return GT; }
+"<="            { return LEQ; }
+">="            { return GEQ; }
+"&&"            { return AND; }
+"||"            { return OR; }
+"!"             { return NOT; }
+"+"             { return PLUS; }
+"-"             { return MINUS; }
+"*"             { return TIMES; }
+"/"             { return DIV; }
+"%"             { return MOD; }
+";"             { return SEMI; }
+","             { return COMMA; }
+"\("            { return LPARAN; }
+"\)"            { return RPARAN; }
+"="             { return ASSIGN; }
+"."             { return DOT; }
+
+"int"           { return INT; }
+"void"          { return VOID; }
+"class"         { return CLASS; }
+"new"           { return NEW; }
+"print"         { return PRINT; }
+"read"          { return READ; }
+"return"        { return RETURN; }
+"while"         { return WHILE; }
+"if"            { return IF; }
+"else"          { return ELSE; }
+"this"          { return THIS; }
+"null"          { return NULLT; }
+
+{SINGLE_ERROR}  { return ER_CH; }
+{WORD_ERROR}    { return ER_WD; }
+
+{IDENT}         { return IDENT; }
+[0-9]+          { return NUMBER; }
