@@ -1,7 +1,7 @@
 # Compiler Project
 
 
-This class was an interesting one. The whole premise of the class was to build
+This project was an interesting one. The whole premise of the class was to build
 a real working compiler for the Decaf programming language (a subset language 
 of Java) over the span of the semester. 
 You'll see six different versions of the compiler as it develops over time. 
@@ -31,11 +31,12 @@ Here are the versions and their corresponding milestones:
     - When you **Ctrl+D**, the program will output a tree structure of the decaf file you had input.
     - Error handling is better, but not entirely comprehensive yet. An improvement that final two version aim to fix.
 - [Program 5](./program5/)
-    - Lorem ipsum
+    - In the last version, we had implemented class and function structure, and in this version we enforce scope and handle errors based on unknown scope variables, functions, and classes.
+    - Further improvements in general error handling. Errors are more consistent with common compilation errors.
 - [Program 6](./program6/) 
-    - The final working compiler for the Decaf Programming Language
-    - Not a perfect compiler, but it's pretty close considering how large this project was considering the small time frame I had to complete it.
-    - 
+    - The final working compiler for the Decaf Programming Language.
+    - The output is any class declaration, constructor declarations, and function declarations.
+    - Not a perfect compiler, but it's pretty close considering how large this project is and the little time I had to complete it.
 
 
 
