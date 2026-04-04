@@ -1,7 +1,8 @@
 # This is the Professional Works Directory
 
-View all of my professional projects, all real software I have worked on that 
-has gone to be deployed for people to use in real world applications.
+Here you can view all of my professional projects, all real software 
+I have worked on that has gone to be deployed for people to use 
+in real world applications.
 
 
 ## Table of Contents
