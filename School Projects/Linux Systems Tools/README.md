@@ -1,34 +1,23 @@
 # Linux Systems Tools
 
+This repo contains a set of Linux command reimplementations written in C. The class focused on Linux systems fundamentals, so we learned by rebuilding common tools from the ground up.
 
-In this repo, I have a collection of common linux tools that we recreated 
-using our own C scripts in linux.
-
-This class was focused on teaching the basics of linux systems, and what better 
-way to do that than scripting in a linux environment, attempting
-to recreate common linux tools? 
-
-The naming convention of our tools (with one exception) is to prefix the tool we were working on 
-with "wy-" and then the name of the command we are replicating. So for example, "wycat" would be
-my implementation of the "cat" command. See below for a list of commands that
-I recreated using my own C scripts!
+Most tools use the `wy-` prefix plus the command name. For example, `wycat` reimplements `cat`, and `wyls` reimplements `ls`. Here are the projects I rebuilt:
 
 | Tool | Goal |
 |---|---|
-| [wycat](./wycat/) | Recreation of the Linux command "cat" |
-| [wyls](./wyls/) | Recreation of the Linux command "ls" |
-| [wytar](./wytar/) | Recreation of the Linux command "tar" |
-| [wytalk](./wytalk/) | a server/client system for basic text chatting between two people |
-| [wyshell](./wyshell/) | a basic shell terminal |
-| [mmult](./mmult/) | a matrix multiplier tool |
+| [wycat](./wycat/) | Recreation of the Linux `cat` command |
+| [wyls](./wyls/) | Recreation of the Linux `ls` command |
+| [wytar](./wytar/) | Create and extract `.tar` archives |
+| [wytalk](./wytalk/) | Basic client/server text chat |
+| [wyshell](./wyshell/) | Simple shell terminal |
+| [mmult](./mmult/) | Multiply matrices with optional threading |
 
 <br>
 
-To run each project, on a Linux device, have "make" installed and type "make" to compile the project.
-Then type "./xyz" where xyz is the name of the executable (which is also the names you see in the list above).
-Each tool has a unique usage, so check the README for how to use the tool and for demo images.
+To run each project on Linux, compile with `make` and then execute the tool by prefixing the tool name with `./<project_name>`. Each subfolder has its own README with usage examples and details.
 
-###### Note: These projects were developed solely for Linux OS. They will probably not work on Windows/Mac (as far as I am aware).
+###### Note: These projects were developed for Linux and may not work on Windows or Mac.
 
 
 

@@ -1,8 +1,8 @@
 # wycat
 
-My own simplified implementation of the "cat" tool.
+My own simplified implementation of the `cat` tool.
 
-A tool that will print out provided contents either through stdin or provided files.
+This tool prints contents from stdin or from one or more files.
 
 <br>
 

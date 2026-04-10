@@ -1,26 +1,24 @@
 # University of Wyoming IT
 
-At the University of Wyoming, I had the opportunity to work 
-with the IT department's Classroom Technology Services (CTS) department. At CTS, much of the primary responsibilities for a student technician is to do room checks, respond to support tickets, and implement/replace equipment in classrooms all across the campus. 
+At the University of Wyoming, I worked with Classroom Technology Services (CTS) to support classrooms, respond to tickets, and build/maintain AV systems across campus. I started with room checks and equipment support, then moved into software contributions to help build our internal CTS tool, Bronson.
 
-Within a couple of months, I got used to the AV role pretty quickly due to my experience with systems in my Computer Science degree. However, I wanted to do more. Luckily, a couple years before I was hired, a small team of other student techs had sought out to create an all-encompassing CTS department tool that handles all common tasks a CTS technician would need to do, all in one place. The project was called "Bronson," and it was something I wanted to contribute to.
+Within a couple of months, I got comfortable in the AV role and wanted to take on more than routine hardware work. A team of student techs had already started Bronson to bring CTS workflows together in one place, and I joined the project to expand its capabilities.
 
 ### ![Bronson - Dashboard](./Images/Bronson%20Dashboard.png "Bronson - Dashboard")
 
 
-Bronson has a public GitHub repository that you can find [<b>here</b>](https://github.com/UWIT-CTS-Software/bronson_online), and is where you can find my open source code. Much of my contributions touch most systems (which you can find more details below), but my biggest contribution was "Tickex" - an application that synchronizes Bronson's ticket data with the University's TeamDynamix subscription. Using an API that interacts directly with TeamDynamix's servers, Bronson will sync concurrent ticket data related to the CTS department and forward it to web clients that are connected to backend servers hosted by the University. Tickex is a tool that uses both front end and back end systems for the application to work.
+Bronson is open source on GitHub [<b>here</b>](https://github.com/UWIT-CTS-Software/bronson_online). My contributions span both frontend and backend work, including UI features, backend integration, and support tools for technicians. My biggest feature was Tickex, the ticket sync service for Bronson.
 
-Something to note about the University's TeamDynamix subscription is that every department, not just within IT, uses it. This means that there is substantial data to sort through, and ensuring all data is accurate, all-encompassing to our department, and presented in an organized fashion is no small feat. That is the power of Tickex - its ability to automatically sort through and notify relevant tickets to technicians within minutes of being submitted. This is a major enhancement to our department, since one of our core responsibilities is to respond to support requests quickly.
+Tickex connects Bronson to TeamDynamix, pulls CTS-relevant tickets, filters them, and syncs updates in near real time. It also helps avoid noise from unrelated campus tickets by focusing on the department’s scope. That reduced manual ticket handling, improved routing, and helped the team respond more quickly and efficiently.
 
-### Other Bronson Features I Have Worked On:
+### Other Bronson features I worked on:
 
-- Dashboard: Added a tickex widget for quick ticket viewing.
-
-- Wiki: Quick references/help page for CTS technicians on how to use Bronson.
-
-- Checkerboard/Database Editor: Added a flag for each room that allows the room to marked as "offline." When a room is under maintenance or not in service for any reason.
-
-- Mobile User Friendly: Detecting when a user is on a mobile device and changing the formatting of the whole website to enlarge elements.
+- Dashboard: Added a Tickex widget so technicians could view tickets quickly.
+- Wiki: Built quick-reference help pages for CTS technicians.
+- Checkerboard/Database Editor: Added an "offline" flag for rooms under maintenance.
+- CamCode (Crestron/Q-Sys File Manager): Reworked underlying tool structure and how data was appeared on screen. Also added searchability which will traverse a file hierarchy that is thousands of files large.
+- Mobile-friendly layout: Detected mobile devices and adjusted formatting for easier use on phones.
+- Workflow clarity: Improved room status visibility so technicians could see service state and maintenance context at a glance.
 
 
 ### ![Bronson - Tickex Main Page](./Images/Bronson%20Tickex%20Main.png "Bronson - Tickex Main Page")
@@ -29,7 +27,7 @@ Something to note about the University's TeamDynamix subscription is that every 
 
 <br>
 
-Due to the nature of this ticketing API, I became very familiar with TeamDynamix. Not only was I doing ticket synchronization with Bronson, I was also doing some data analysis with our department's tickets. Analyzing statistics with real ticket data and reporting those numbers to my department. Some ticket insights included: room pre-/post-upgrade ticket rates
+Because Tickex connects to a campus-wide TeamDynamix subscription, I also analyzed ticket data for reporting and operational insights. I used real ticket trends to help the department identify priorities like room upgrade ticket rates.
 
 ### ![TeamDynamix - Example Ticket Reports](./Images/TeamDynamix.png "TeamDynamix - Example Ticket Reports")
 

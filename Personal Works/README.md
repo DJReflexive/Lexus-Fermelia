@@ -1,17 +1,15 @@
 
-# This is the Personal Works Directory
+# Personal Works
 
-This directory is for small works I've made to help with daily life. 
-As I develop more personal projects, you will see them here! 
+This folder is where I keep small tools, scripts, and practical projects I build for real-life use. These are usually quick wins or handy utilities I create for myself, friends, or campus needs.
 
-Check out my <a href=".././Professional%20Works">Professional Works</a> and <a href=".././School%20Projects/">School Works</a> for my most involved projects!
-
+If you want something bigger, check out my <a href=".././Professional%20Works">Professional Works</a> and <a href=".././School%20Projects/">School Works</a> for more complete projects.
 
 ## Simple Scripts
 
-- <a href="./no_file_extension_to_png.py">no_file_extension_to_png.py</a>: Script that added file extensions to image files that had missing extensions
+- <a href="./no_file_extension_to_png.py">no_file_extension_to_png.py</a>: A small Python script that scans image files and adds missing extensions so the files open correctly.
 
-- <a href="./QR_Spare_PC.cs">QR_Spare_PC.cs</a>: A script that generates custom .png files formatted with QR Code, identification codes, and an instruction set. Developed for UWIT to  quickly track where spare PCs are going around campus. Can be easily rewritten for other QR Code generation needs...
+- <a href="./QR_Spare_PC.cs">QR_Spare_PC.cs</a>: A C# utility that creates custom PNGs with QR codes, asset tags, and simple instructions. I built it for UWIT to track spare computers across campus, and it can be adapted for other inventory or labeling workflows.
 
 <br>
 

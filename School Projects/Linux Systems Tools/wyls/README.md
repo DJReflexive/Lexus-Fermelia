@@ -1,10 +1,8 @@
 # wyls
 
-My own simplified implementation of the "ls" tool.
+My own simplified implementation of the `ls` tool.
 
-A tool that will list the given directory (or the current working directory 
-by default). It will print a very descriptive account, similar to what "ls -l"
-would output:
+This tool lists a directory (or the current working directory by default) and prints a detailed view like `ls -l`:
 
 ```
 permissions user group file_size date path
