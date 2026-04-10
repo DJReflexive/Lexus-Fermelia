@@ -1,29 +1,14 @@
 # Algorithms
 
-Algorithms was a course that was required of every Computer Science 
-graduate at UW. It was where every student was taught the fundamentals
-of thinking as a developer by re-creating and developing common algorithms 
-and theory fundamentals.
+This course was required for every Computer Science graduate at UW. It taught core developer thinking by rebuilding common algorithms and proving their behavior.
 
-Of course, concepts like searching, sorting, and graphing algorithms were
-covered, but I decided to omit the very basic repositories from this so that I 
-can show you the more interesting projects I worked on. Some are basic, some 
-are more complex, but every repo shows a unique window into my developer mind.
+I’ve included the more interesting assignments here instead of every introductory repo. Some projects are straightforward implementations, while others are deeper proofs and analysis.
 
-Note: 
-- These are the actual repositories in which I submitted my assignments, 
-you can even find commentary between myself and my professor about any 
-revisions to be made before he gave my assignment a passing grade.
-
-- Each assignment has the "prompt" which is the problem for the assignment 
-that I would have to solve or implement. Below this you will see my analysis 
-of the algorithm I worked with to show my understanding (not all repos have
-code, some are just a README file with my input).
-
-- You will see that I commonly used AI as a resource, which is cited in
-every spot where necessary. This was allowed by our professor, but he 
-encouraged us to use AI as a tool for learning, not so much as a method to 
-"get our assignments done." 
+Note:
+- These are the actual repositories where I submitted assignments, including professor feedback and revisions when available.
+- Each assignment typically includes the prompt plus my analysis of the algorithm.
+- Most entries are code projects, but others are write-ups or proofs.
+- I cited AI when used, because the course encouraged AI as a learning tool, not a shortcut.
 
 <br>
 

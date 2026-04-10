@@ -1,11 +1,8 @@
-# This is the School Projects Directory
+# School Projects
 
-A collection of all my notable works that I worked on while I was at the 
-University of Wyoming. Here you will find previous projects 
-that I developed. 
+A collection of notable projects I completed while at the University of Wyoming. This section highlights academic work across systems, security, compilers, and more.
 
-I have a wide variety of skills that are showcased within this directory, from
-algorithm assignments, to Unity game development projects.
+You’ll find a range of skills here, from algorithm assignments to Linux tools, security demonstrations, and video game demos.
 
 ## Table of Contents
 

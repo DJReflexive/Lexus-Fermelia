@@ -1,8 +1,6 @@
-# This is the Professional Works Directory
+# Professional Works
 
-Here you can view all of my professional projects, all real software 
-I have worked on that has gone to be deployed for people to use 
-in real world applications.
+This folder is where I showcase real software and professional systems I helped build for actual users. These aren’t just school projects — they are practical, deployed tools I contributed to in a workplace setting.
 
 
 ## Table of Contents

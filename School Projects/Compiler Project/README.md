@@ -1,44 +1,15 @@
 # Compiler Project
 
+This class project walked us through building a real compiler for Decaf, a subset programming language similar to Java, over the course of a semester. The repository contains six compiler versions, each representing a new milestone toward a working compiler.
 
-This project was an interesting one. The whole premise of the class was to build
-a real working compiler for the Decaf programming language (a subset language 
-of Java) over the span of the semester. 
-You'll see six different versions of the compiler as it develops over time. 
-Each iteration was to achieve a specific goal, the next step in the process 
-to get to a working compiler.
+Here are the versions and their milestones:
 
-Here are the versions and their corresponding milestones:
-
-
-- [Program 1](./program1/):  
-    - When the command is run, it will take any input given through stdin and parse it for decaf keywords, symbols, identifiers, white spaces, etc... 
-    - Unfortunately I do not have the original documentation that explains exactly what each "Type" is. 
-    - However, it will detect every token within the input and classify into a meaningful way. 
-    - At this stage the decaf language is not yet enforced since there is no semantical analysis.
-- [Program 2](./program2/)
-    - Much like Program 1, it will take any input given through stdin and parse for decaf keywords, symbols, identifiers, white spaces, etc... 
-    - This version is more advanced due to its precision in specific character detection. Things like parenthesis, brackets, plus, minus, and (&&), or (||), spaces, etc...
-    - There is also the first layer of error detection for unrecognized symbols and words using regex expressions.
-    - While still not enforced through error handling, the decaf language is now being more and more encouraged
-- [Program 3](./program3/)
-    - Now that we have token parsing down, this version aims to start using a grammar for decaf's structure with the new .ypp file. This is a simplified version of it, so only very basic statements will pass without some sort of error from the compiler. 
-    - Error handling will try to be helpful in describing what the problem is to the user, but is often wrong at this stage of development.
-    - It's a step in the right direction, but at this point the compiler is too strict, so the next version aims to fix some of that.
-- [Program 4](./program4/)
-    - Huge improvements to the grammar, and now C commenting is supported.
-    - At this stage, the grammar is close to being in its final stage, and can now support more complex function and class structures. 
-    - When you **Ctrl+D**, the program will output a tree structure of the decaf file you had input.
-    - Error handling is better, but not entirely comprehensive yet. An improvement that final two version aim to fix.
-- [Program 5](./program5/)
-    - In the last version, we had implemented class and function structure, and in this version we enforce scope and handle errors based on unknown scope variables, functions, and classes.
-    - Further improvements in general error handling. Errors are more consistent with common compilation errors.
-- [Program 6](./program6/) 
-    - The final working compiler for the Decaf Programming Language.
-    - The output is any class declaration, constructor declarations, and function declarations.
-    - Not a perfect compiler, but it's pretty close considering how large this project is and the little time I had to complete it.
-
-
+- [Program 1](./program1/): Tokenizes stdin input into Decaf keywords, symbols, identifiers, and whitespaces. The compiler detects tokens, but it does not enforce Decaf grammar yet.
+- [Program 2](./program2/): Improves token detection with finer character handling (parentheses, brackets, operators, whitespace) and adds initial error detection for unrecognized symbols.
+- [Program 3](./program3/): Introduces grammar parsing with a `.ypp` file. This version accepts simple Decaf statements and adds early error reporting, though the parser remains strict.
+- [Program 4](./program4/): Makes major grammar improvements, adds C-style comments, and supports more complex function and class structures. Pressing **Ctrl+D** outputs a parsed tree of the Decaf input.
+- [Program 5](./program5/): Adds scope enforcement and more consistent error handling for unknown variables, functions, and classes.
+- [Program 6](./program6/): The final working compiler. It supports class declarations, constructors, and function declarations. It’s not perfect, but it’s a strong result for a semester-long compiler project.
 
 <br>
 

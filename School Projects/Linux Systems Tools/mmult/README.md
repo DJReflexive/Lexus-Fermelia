@@ -1,8 +1,8 @@
 # mmult
 
-A tool that will multiple two compatible matrices together.
+A tool that multiplies two compatible matrices together.
 
-###### Note: The make_mat script is not my work, it was a file provided to us to assist in creating random matrices to run our tests with - it would be helpful for your own testing
+###### Note: The `make_mat` script was provided to us to generate random matrices for testing. It is helpful for your own test cases.
 
 <br>
 

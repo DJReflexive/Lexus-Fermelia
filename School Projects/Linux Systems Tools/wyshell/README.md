@@ -1,15 +1,8 @@
 # wyshell
 
+This project includes three iterations of a custom shell terminal. It supports token parsing, command execution, and control flow features like pipes, semicolons, and redirection.
 
-This project had three iterations, in which you can find the different stages
-of development for this tool. This is essentially our own shell terminal with 
-token parsing, command execution, and command control flow using pipes, 
-semi colons, redirection, etc...
-
-Depending on which version you select, you will see different outputs. 
-By going through each version in order, you will the next iteration is an
-improvement from the previous. This reflects in the code as well, you can see
-how I refine and refactor code between versions. 
+Each version shows an evolution in the project. By progressing through them in order, you can see how the shell became more powerful and robust.
 
 ## Breakdown of versions
 

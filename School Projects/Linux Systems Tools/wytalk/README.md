@@ -1,6 +1,6 @@
 # wytalk
 
-A tool that will exchange simple text messages between a client and server.
+A tool for exchanging simple text messages between a client and a server.
 
 <br>
 

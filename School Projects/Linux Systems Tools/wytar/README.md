@@ -1,8 +1,8 @@
 # wytar
 
-My own simplified implementation of the "tar" tool.
+My own simplified implementation of the `tar` tool.
 
-A tool that can create/extract .tar formatted archive files.
+This tool can create and extract `.tar` archive files.
 
 <br>
 
