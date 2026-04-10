@@ -17,7 +17,9 @@ What you are viewing now is a personal repository showcasing various projects an
 
 ## Experience
 
-#### University of Wyoming IT - Classroom Technology Services (CTS) | Student IT Technician & Software Developer  
+#### University of Wyoming IT - Classroom Technology Services (CTS) | Software Engineer
+
+#### University of Wyoming IT - Classroom Technology Services (CTS) | IT Technician
 
 #### University of Wyoming Union - Student Technical Services (STS) | Student AV Technician 
 
