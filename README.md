@@ -1,9 +1,9 @@
 # Lexus Fermelia
 
-### B.S. Computer Science (Expected May 2026) | Cert. in Audio Technology | University of Wyoming
+### B.S. Computer Science | Cert. in Audio Technology | University of Wyoming
 
 
-A Wyoming-born Software Developer and music enthusiast, graduate of the University of Wyoming with a B.S. in Computer Science (Expected May 2026). 
+A Wyoming-born Software Developer and music enthusiast, graduate of the University of Wyoming with a B.S. in Computer Science. 
 With a passion for problem solving and creating efficient solutions, I have experience in both high-level and low-level programming languages and frameworks - having worked on multiple projects ranging from web applications to system software. 
 
 I am always looking for new challenges and opportunities to grow as a developer and a person. 
@@ -17,7 +17,9 @@ What you are viewing now is a personal repository showcasing various projects an
 
 ## Experience
 
-#### University of Wyoming IT - Classroom Technology Services (CTS) | Student IT Technician & Software Developer  
+#### University of Wyoming IT - Classroom Technology Services (CTS) | Software Developer
+
+#### University of Wyoming IT - Classroom Technology Services (CTS) | IT Technician
 
 #### University of Wyoming Union - Student Technical Services (STS) | Student AV Technician 
 
@@ -26,7 +28,7 @@ What you are viewing now is a personal repository showcasing various projects an
 ## Technical Skills
 
 
-|  |  |  |
+|   |   |   |
 |---|---|---|
 | C / C++       | JavaScript    | Software Engineering  |
 | C#            | CSS           | Database Systems      |
@@ -71,4 +73,4 @@ Lexus-Fermelia (You are Here!)
 
 <br>
 
-###### Last Updated:  March 30th, 2026
+###### Last Updated:  May  18th, 2026
