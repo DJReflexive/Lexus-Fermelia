@@ -28,7 +28,6 @@ Lexus-Fermelia
 │
 └── <a href=".././School%20Projects/">School Works</a>
     ├── <a href=".././School%20Projects/Algorithms">Algorithms</a>
-    ├── <a href=".././School%20Projects/Android%20Mobile%20Apps">Android Mobile Apps</a>
     ├── <a href=".././School%20Projects/Compiler%20Project">Compiler Project</a>
     ├── <a href=".././School%20Projects/Cyber%20Security%20Malware%20Project">Cyber Security Malware Project</a>
     ├── <a href=".././School%20Projects/Linux%20Systems%20Tools">Linux Systems Tools</a>

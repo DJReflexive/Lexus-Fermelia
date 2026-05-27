@@ -31,11 +31,11 @@ What you are viewing now is a personal repository showcasing various projects an
 |   |   |   |
 |---|---|---|
 | C / C++       | JavaScript    | Software Engineering  |
-| C#            | CSS           | Database Systems      |
+| C#            | CSS           | DevOps                |
 | Python        | HTML          | Systems Development   |
-| Rust          | Windows OS    | Web Development       |
-| Java          | Linux OS      | Mobile Development    |
-| SQL           | Git / GitHub  | Game Development      |
+| Rust          | Windows OS    | Database Systems      |
+| Java          | Linux OS      | Game Development      |
+| SQL           | Git / GitHub  | Web Development       |
 
 
 <br>
@@ -53,7 +53,6 @@ Lexus-Fermelia (You are Here!)
 │
 └── <a href="./School%20Projects/">School Works</a>
     ├── <a href="./School%20Projects/Algorithms">Algorithms</a>
-    ├── <a href="./School%20Projects/Android%20Mobile%20Apps">Android Mobile Apps</a>
     ├── <a href="./School%20Projects/Compiler%20Project">Compiler Project</a>
     ├── <a href="./School%20Projects/Cyber%20Security%20Malware%20Project">Cyber Security Malware Project</a>
     ├── <a href="./School%20Projects/Linux%20Systems%20Tools">Linux Systems Tools</a>
